@@ -12,7 +12,6 @@ static const char *fonts[]          = {"JetBrains Mono:size=9:antialias=true:hin
                                        "SymbolsNerdFont:size=10:antialias=true:autohint=true",
                                        "NotoColorEmoji:size=10:antialias=true:autohint=true",
 						     	};
-static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
