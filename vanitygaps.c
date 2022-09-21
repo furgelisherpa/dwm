@@ -1,6 +1,5 @@
 /* Key binding functions */
 static void defaultgaps(const Arg *arg);
-static void incrgaps(const Arg *arg);
 static void togglegaps(const Arg *arg);
 /* Layouts (delete the ones you do not need) */
 static void bstack(Monitor *m);
@@ -45,17 +44,6 @@ void
 defaultgaps(const Arg *arg)
 {
 	setgaps(gappoh, gappov, gappih, gappiv);
-}
-
-void
-incrgaps(const Arg *arg)
-{
-	setgaps(
-		selmon->gappoh + arg->i,
-		selmon->gappov + arg->i,
-		selmon->gappih + arg->i,
-		selmon->gappiv + arg->i
-	);
 }
 
 void
