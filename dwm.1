@@ -1,21 +1,23 @@
 .TH DWM 1 dwm\-VERSION
 .SH NAME
-dwm \- dynamic window manager
+dwm \- dynamic window manager forked by furgelisherpa
 .SH SYNOPSIS
 .B dwm
 .RB [ \-v ]
 .SH DESCRIPTION
-dwm is a dynamic window manager for X. It manages windows in tiled, monocle
-and floating layouts. Either layout can be applied dynamically, optimising the
+dwm is a dynamic window manager for X. It manages windows in tiled, bottom
+stack and floating layouts. Either layout can be applied dynamically, optimising the
 environment for the application in use and the task performed.
 .P
 In tiled layouts windows are managed in a master and stacking area. The master
 area on the left contains one window by default, and the stacking area on the
 right contains all other windows. The number of master area windows can be
-adjusted from zero to an arbitrary number. In monocle layout all windows are
-maximised to the screen size. In floating layout windows can be resized and
-moved freely. Dialog windows are always managed floating, regardless of the
-layout applied.
+adjusted from zero to an arbitrary number. In bottom stacks layout are also
+managed in a master and stacking area. The master are on the top contains one
+window by default, and the stacking area on the bottom contains all other windows.
+The number of master area windows can be adjusted from zero to an arbitrary number.
+In floating layout windows can be resized and moved freely. Dialog windows are always
+managed floating, regardless of the layout applied.
 .P
 Windows are grouped by tags. Each window can be tagged with one or multiple
 tags. Selecting certain tags displays all windows with these tags.
@@ -49,111 +51,108 @@ label toggles between tiled and floating layout.
 .B Button3
 click on a tag label adds/removes all windows with that tag to/from the view.
 .TP
-.B Mod1\-Button1
+.B Mod4\-Button1
 click on a tag label applies that tag to the focused window.
 .TP
-.B Mod1\-Button3
+.B Mod4\-Button3
 click on a tag label adds/removes that tag to/from the focused window.
 .SS Keyboard commands
 .TP
-.B Mod1\-Shift\-Return
+.B Mod4\-Return
 Start
 .BR st(1).
 .TP
-.B Mod1\-p
+.B Mod4\-Shift\-Return
+Start scratchpad
+.TP
+.B Mod4\-d
 Spawn
 .BR dmenu(1)
 for launching other programs.
 .TP
-.B Mod1\-,
-Focus previous screen, if any.
-.TP
-.B Mod1\-.
-Focus next screen, if any.
-.TP
-.B Mod1\-Shift\-,
-Send focused window to previous screen, if any.
-.TP
-.B Mod1\-Shift\-.
-Send focused window to next screen, if any.
-.TP
-.B Mod1\-b
+.B Mod4\-b
 Toggles bar on and off.
 .TP
-.B Mod1\-t
+.B Mod4\-t
 Sets tiled layout.
 .TP
-.B Mod1\-f
+.B Mod4\-Shift\-t
+Sets bottom stack layout.
+.TP
+.B Mod4\-f
 Sets floating layout.
 .TP
-.B Mod1\-m
-Sets monocle layout.
-.TP
-.B Mod1\-space
-Toggles between current and previous layout.
-.TP
-.B Mod1\-j
+.B Mod4\-j
 Focus next window.
 .TP
-.B Mod1\-k
+.B Mod4\-k
 Focus previous window.
 .TP
-.B Mod1\-i
+.B Mod4\-Shift\-j
+Move focus window clockwise(right).
+.TP
+.B Mod4\-Shift\-k
+Move focus window anti-clockwise(left).
+.TP
+.B Mod4\-i
 Increase number of windows in master area.
 .TP
-.B Mod1\-d
+.B Mod4\-Shift\-i
 Decrease number of windows in master area.
 .TP
-.B Mod1\-l
+.B Mod4\-l
 Increase master area size.
 .TP
-.B Mod1\-h
+.B Mod4\-h
 Decrease master area size.
 .TP
 .B Mod1\-Return
 Zooms/cycles focused window to/from master area (tiled layouts only).
 .TP
-.B Mod1\-Shift\-c
-Close focused window.
-.TP
-.B Mod1\-Shift\-space
+.B Mod4\-Shift\-f
 Toggle focused window between tiled and floating state.
 .TP
-.B Mod1\-Tab
+.B Mod4\-Tab
 Toggles to the previously selected tags.
 .TP
-.B Mod1\-Shift\-[1..n]
+.B Mod4\-[1..n]
+Move to nth tag.
+.TP
+.B Mod4\-Shift\-[1..n]
+Move focus window to nth tag
+.TP
+.B Mod4\-Control\-[1..n]
 Apply nth tag to focused window.
 .TP
-.B Mod1\-Shift\-0
+.B Mod4\-Shift\-0
 Apply all tags to focused window.
 .TP
-.B Mod1\-Control\-Shift\-[1..n]
+.B Mod4\-Control\-Shift\-[1..n]
 Add/remove nth tag to/from focused window.
 .TP
-.B Mod1\-[1..n]
-View all windows with nth tag.
-.TP
-.B Mod1\-0
+.B Mod4\-0
 View all windows with any tag.
 .TP
-.B Mod1\-Control\-[1..n]
+.B Mod4\-Control\-Shift\-[1..n]
 Add/remove all windows with nth tag to/from the view.
+.TP
+.B Mod1\-q
+Close focused window.
 .TP
 .B Mod1\-Shift\-q
 Quit dwm.
 .TP
-.B Mod1\-Control\-Shift\-q
+.B Mod1\-Shift\-r
 Restart dwm.
 .SS Mouse commands
 .TP
-.B Mod1\-Button1
+.B Mod4\-Button1
 Move focused window while dragging. Tiled windows will be toggled to the floating state.
 .TP
-.B Mod1\-Button2
+.B Mod4\-Button2
 Toggles focused window between floating and tiled state.
 .TP
-.B Mod1\-Button3
+.B Mod4\-Button3
 Resize focused window while dragging. Tiled windows will be toggled to the floating state.
 .SH CUSTOMIZATION
 dwm is customized by creating a custom config.h and (re)compiling the source
