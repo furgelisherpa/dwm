@@ -108,15 +108,15 @@ static const Key keys[] = {
 
     /* Layout manipulation */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_o,      incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_o,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ Mod1Mask,                     XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_a,      togglegaps,     {0} },
 	{ MODKEY|ShiftMask,             XK_a,      defaultgaps,    {0} },
 
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ Mod1Mask,                     XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
