@@ -9,16 +9,17 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const unsigned int gappih    = 5;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 5;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 5;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 5;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 2;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 2;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 2;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 2;       /* vert outer gap between windows and screen edge */
 static int smartgaps                = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = {"JetBrains Mono:size=9:antialias=true:hinting=true",
-                                       "SymbolsNerdFont:size=10:antialias=true:autohint=true",
-                                       "NotoColorEmoji:size=10:antialias=true:autohint=true",
+                                       "JoyPixels:pixelsize=12:antialias=true:autohint=true",
+                                       "NotoColorEmoji:size=12:antialias=true:autohint=true",
+                                       "SymbolsNerdFont:size=9:antialias=true:autohint=true"
 						     	};
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -146,7 +147,11 @@ static const Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+        { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
+	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
+	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
+	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} },
+	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
