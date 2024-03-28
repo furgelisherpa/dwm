@@ -85,6 +85,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+#include "exitdwm.c"
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -128,8 +129,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 
-	{ Mod1Mask|ShiftMask,           XK_q,      quit,           {0} },
-	{ Mod1Mask|ShiftMask, 		XK_r,      quit,           {1} }, 
+	{ MODKEY|ShiftMask,             XK_e,      exitdwm,       {0} },
+	{ MODKEY|ShiftMask, 		        XK_r,      quit,           {1} }, 
 };
 
 /* button definitions */
